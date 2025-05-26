@@ -1,0 +1,88 @@
+<%- include('header') %>
+         <div class="page-wrapper">
+             <!-- ============================================================== -->
+             <!-- Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                 <div class="row">
+                     <div class="col-12 d-flex no-block align-items-center">
+                         <h4 class="page-title">Tables</h4>
+                         <div class="ml-auto text-right">
+                             <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                     <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                 </ol>
+                             </nav>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- Container fluid  -->
+             <!-- ============================================================== -->
+             <div class="container-fluid">
+                 <!-- ============================================================== -->
+                 <!-- Start Page Content -->
+                 <!-- ============================================================== -->
+                 <div class="row">
+                     <div class="col-12">
+                         <div class="card">
+                             <div class="card-body">
+                                 <h5 class="card-title m-b-0">Admion Information</h5>
+                             </div>
+                             <table class="table">
+                                   <thead>
+                                     <tr>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Firstname</th>
+                                       <th scope="col">Lastname</th>
+                                       <th scope="col">Email</th>
+                                       <th scope="col">Gender</th>
+                                       <th scope="col">Hobbies</th>
+                                       <th scope="col">Image</th>
+                                       <th scope="col">Actions</th>
+                                     </tr>
+                                   </thead>
+                                   <tbody>
+                                    <% admins.map((admin, index) => { %>
+                                        <tr>
+                                            <td><%= index + 1 %></td>
+                                            <td><%= admin.firstname %></td>
+                                            <td><%= admin.lastname %></td>
+                                            <td><%= admin.email %></td>
+                                            <td><%= admin.gender %></td>
+                                            <td><%= admin.hobbies %></td>
+                                            <td><img src="<%= admin.image %>" width="50"></td>
+                                            <td>
+                                                <a href="/admin/edit-admin/<%= admin.id %>" class="fas fa-edit"></a> &nbsp; &nbsp;
+                                                <a href="/admin/delete-admin/<%= admin.id %>" class="fas fa-trash"></a>
+                                            </td>
+                                        </tr>
+                                    <% }); %>
+                                   </tbody>
+                             </table>
+                         </div>
+                       
+                         
+                         
+                     </div>
+                 </div>
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+                 <!-- ============================================================== -->
+                 <!-- Right sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- .right-sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- End Right sidebar -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+ <%- include('footer') %>

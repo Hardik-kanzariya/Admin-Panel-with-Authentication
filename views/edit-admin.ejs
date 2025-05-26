@@ -1,0 +1,133 @@
+<%- include('header') %>
+         <div class="page-wrapper">
+             <!-- ============================================================== -->
+             <!-- Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                 <div class="row">
+                     <div class="col-12 d-flex no-block align-items-center">
+                         <h4 class="page-title">Edit Admin</h4>
+                         <div class="ml-auto text-right">
+                             <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                     <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                 </ol>
+                             </nav>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- Container fluid  -->
+             <!-- ============================================================== -->
+             <div class="container-fluid">
+                 <!-- ============================================================== -->
+                 <!-- Start Page Content -->
+                 <!-- ============================================================== -->
+                 <div class="row">
+                     <div class="col-md-6">
+                         <div class="card">
+                             <form class="form-horizontal" action="/admin/update-admin/<%= admin.id %>" method="post" enctype="multipart/form-data">
+                                 <div class="card-body">
+                                     <h4 class="card-title">Edit Personal Info</h4>
+                                     <div class="form-group row">
+                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">First Name</label>
+                                         <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="fname" name="firstname" value="<%= admin.firstname %>" placeholder="First Name Here">
+                                         </div>
+                                     </div>
+                                     <div class="form-group row">
+                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Last Name</label>
+                                         <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="lname" name="lastname" value="<%= admin.lastname %>" placeholder="Last Name Here">
+                                         </div>
+                                     </div>
+                                     <div class="form-group row">
+                                         <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                         <div class="col-sm-9">
+                                             <input type="email" class="form-control" id="email" name="email" value="<%= admin.email %>" placeholder="Enter your Email">
+                                         </div>
+                                     </div>
+                                     <div class="form-group row">
+                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password</label>
+                                         <div class="col-sm-9">
+                                             <input type="password" class="form-control" id="password" name="password" value="<%= admin.password %>" placeholder="Password Here">
+                                         </div>
+                                     </div>
+ 
+                                     <div class="form-group row">
+                                         <label class="col-sm-3 text-right control-label col-form-label">Gender</label>
+                                         <div class="col-md-9">
+                                             <div class="custom-control custom-radio">
+                                                 <input type="radio" class="custom-control-input" id="customControlValidation1" name="gender" value="Male" <% if(admin.gender == 'Male') { %> checked  <% } %> >
+                                                 <label class="custom-control-label" for="customControlValidation1">Male</label>
+                                             </div>
+                                              <div class="custom-control custom-radio">
+                                                 <input type="radio" class="custom-control-input" id="customControlValidation2" name="gender" value="Female" <% if(admin.gender == 'Female') { %> checked  <% } %> >
+                                                 <label class="custom-control-label" for="customControlValidation2">Female</label>
+                                             </div>
+                                         </div>
+                                     </div>
+ 
+                                     <div class="form-group row">
+                                         <label class="col-sm-3 text-right control-label col-form-label">Hobbies</label>
+                                         <div class="col-md-9">
+                                             <div class="custom-control custom-checkbox mr-sm-2">
+                                                 <input type="checkbox" class="custom-control-input" name="hobbies[]" value="Music" <% if(admin.hobbies.includes('Music')) { %> checked  <% } %> id="customControlAutosizing1">
+                                                 <label class="custom-control-label" for="customControlAutosizing1">Music</label>
+                                             </div>
+                                             <div class="custom-control custom-checkbox mr-sm-2">
+                                                 <input type="checkbox" class="custom-control-input" name="hobbies[]" value="Adventure" <% if(admin.hobbies.includes('Adventure')) { %> checked  <% } %> id="customControlAutosizing2">
+                                                 <label class="custom-control-label" for="customControlAutosizing2">Adventure</label>
+                                             </div>
+                                             <div class="custom-control custom-checkbox mr-sm-2">
+                                                 <input type="checkbox" class="custom-control-input" name="hobbies[]" value="Reading" <% if(admin.hobbies.includes('Reading')) { %> checked  <% } %> id="customControlAutosizing3">
+                                                 <label class="custom-control-label" for="customControlAutosizing3">Reading</label>
+                                             </div>
+                                         </div>
+                                     </div>
+ 
+                                     <div class="form-group row">
+                                         <label class="col-sm-3 text-right control-label col-form-label">File Upload</label>
+                                         <div class="col-md-9">
+                                             <div class="custom-file">
+                                                 <input type="file" class="custom-file-input" name="image" id="validatedCustomFile">
+                                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="border-top">
+                                     <div class="card-body">
+                                         <button type="submit" class="btn btn-primary">Update Admin</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+                         
+ 
+                     </div>
+                     
+                 </div>
+                 
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+                 <!-- ============================================================== -->
+                 <!-- Right sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- .right-sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- End Right sidebar -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+ <%- include('footer') %>   

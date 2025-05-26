@@ -1,0 +1,107 @@
+<%- include('header') %>
+         <div class="page-wrapper">
+             <!-- ============================================================== -->
+             <!-- Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                 <div class="row">
+                     <div class="col-12 d-flex no-block align-items-center">
+                         <h4 class="page-title">Add Blog</h4>
+                         <div class="ml-auto text-right">
+                             <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                     <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                 </ol>
+                             </nav>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Bread crumb and right sidebar toggle -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- Container fluid  -->
+             <!-- ============================================================== -->
+             <div class="container-fluid">
+                 <!-- ============================================================== -->
+                 <!-- Start Page Content -->
+                 <!-- ============================================================== -->
+                 <div class="row">
+                     <div class="col-md-6">
+                         <div class="card">
+                             <form class="form-horizontal" action="/blog/add-blog" method="post" enctype="multipart/form-data">
+                                 <div class="card-body">
+                                     <h4 class="card-title">Blog Info</h4>
+                                     <div class="form-group row">
+                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Title</label>
+                                         <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="fname" name="title" placeholder="Title Here">
+                                         </div>
+                                     </div>
+                                     <div class="form-group row">
+                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Content</label>
+                                         <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="lname" name="content" placeholder="content Here">
+                                         </div>
+                                     </div>
+                                     <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">CreatedAt</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="lname" name=" createdAt" placeholder=" createdAt Here">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Category</label>
+                                        <div class="col-sm-3">
+                                            <select name="category" class="form-control" required>
+                                                <option value="all" <%= admin.category && admin.category.toLowerCase() === "all" ? 'selected' : '' %>>ALL</option>
+                                                <option value="education" <%= admin.category && admin.category.toLowerCase() === "education" ? 'selected' : '' %>>Education</option>
+                                                <option value="comedy" <%= admin.category && admin.category.toLowerCase() === "comedy" ? 'selected' : '' %>>Comedy</option>
+                                                <option value="health" <%= admin.category && admin.category.toLowerCase() === "health" ? 'selected' : '' %>>Health</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                     <div class="form-group row">
+                                         <label class="col-sm-3 text-right control-label col-form-label">File Upload</label>
+                                         <div class="col-md-9">
+                                             <div class="custom-file">
+                                                 <input type="file" class="custom-file-input" name="image" id="validatedCustomFile" required>
+                                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="border-top">
+                                     <div class="card-body">
+                                         <button type="submit" class="btn btn-primary">Add Blog</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+                         
+ 
+                     </div>
+                     
+                 </div>
+                 
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+                 <!-- ============================================================== -->
+                 <!-- Right sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- .right-sidebar -->
+                 <!-- ============================================================== -->
+                 <!-- End Right sidebar -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+ <%- include('footer') %>            

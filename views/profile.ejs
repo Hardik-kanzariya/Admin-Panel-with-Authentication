@@ -1,0 +1,63 @@
+<%- include('header') %>
+
+<style>
+    /* Custom styles for the profile view */
+    .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        transition: transform 0.2s;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        height: auto; 
+        max-height: 300px; 
+        object-fit: cover;
+    }
+
+    .btn {
+        margin-right: 10px; /* Space between buttons */
+    }
+
+    .profile-info {
+        margin-top: 15px; /* Space above profile info */
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 20px; /* Space between cards on smaller screens */
+        }
+
+        .btn {
+            margin-bottom: 10px; /* Space below buttons on smaller screens */
+        }
+    }
+</style>
+
+<h2>hello</h2>
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-md-8 offset-md-2">
+            <div class="card mb-4"> 
+                <img src="<%= admin.image %>" class="card-img-top" alt="<%= admin.firstname %>"> 
+                <div class="card-body"> 
+                    <h2 class="card-title"><%= admin.lastname %></h2>
+                    <div class="profile-info">
+                        <p class="card-text"><strong>Email:</strong> <%= admin.email %></p>  
+                        <p class="card-text"><strong>Gender:</strong> <%= admin.gender %></p>  
+                        <p class="card-text"><strong>Hobbies:</strong> <%= admin.hobbies.join(', ') %></p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>

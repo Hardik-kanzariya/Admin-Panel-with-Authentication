@@ -1,0 +1,53 @@
+<%- include('header') %>
+
+<style>
+    /* Custom styles for the blog view */
+    .card {
+        border-radius: 8px;
+        transition: transform 0.2s;
+        margin-top: 10px;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 10px; 
+        object-fit: cover; /* Cover the area */
+        
+    }
+
+    .btn {
+        margin-right: 10px; /* Space between buttons */
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 20px; /* Space between cards on smaller screens */
+        }
+    }
+</style>
+
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-md-8 offset-md-2">
+            <div class="card mb-4"> 
+                <img src="<%= blog.image %>" class="card-img-top" alt="<%= blog.title %>"> 
+                <div class="card-body"> 
+                    <h2 class="card-title"><%= blog.title %></h2>
+                    <p class="card-text"><%= blog.content %></p> 
+                    <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt %></small></p> 
+                    <a href="/blog/view-blog" class="btn btn-secondary">Back to Blog</a>
+                    <a href="/blog/edit-blog/<%= blog.id %>" class="btn btn-primary">Edit</a> 
+                    <a href="/blog/delete-blog/<%= blog.id %>" class="btn btn-danger">Delete</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>

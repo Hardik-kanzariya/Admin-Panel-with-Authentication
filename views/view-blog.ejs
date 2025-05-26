@@ -1,0 +1,78 @@
+<%- include('header') %>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Blog Information</h4>
+                
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>  
+                    <div class="mx-auto">
+                        <a href="/blog/view-blog" class="btn <%= !category ? 'btn-primary' : 'btn-secondary' %>">All</a>
+                        <a href="/blog/view-blog?category=Education" class="btn <%= category === 'education' ? 'btn-primary' : 'btn-secondary' %>">Education</a>
+                        <a href="/blog/view-blog?category=Comedy" class="btn <%= category === 'comedy' ? 'btn-primary' : 'btn-secondary' %>">Comedy</a>
+                        <a href="/blog/view-blog?category=Health" class="btn <%= category === 'health' ? 'btn-primary' : 'btn-secondary' %>">Health</a>
+                    </div>
+                    
+                    
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <% blogs.map((blog, index) => { %>
+                <a href="/blog/single-blog/<%= blog.id %>" style="text-decoration: none; color: inherit;">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="<%= blog.image %>" class="card-img-top" alt="<%= blog.title %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= blog.title %></h5>
+                                <p class="card-text"><%= blog.content %></p>
+                                <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt %></small></p>
+                                <a href="/blog/edit-blog/<%= blog.id %>" class="btn btn-primary">Edit</a>
+                                <a href="/blog/delete-blog/<%= blog.id %>" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+<%- include('footer') %>
+
+
+
+
+
+
