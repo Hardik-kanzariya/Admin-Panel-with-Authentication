@@ -20,7 +20,7 @@ const { sendMail } = require("../config/mailConfig");
     }
 }
 exports.dashBoard = async (req, res) => {
-    console.log("user:", req.user);
+    // console.log("user:", req.user);
     return res.render('dashboard')
 }
  
@@ -156,15 +156,15 @@ exports.changePassword = async (req, res) => {
 exports.profile = async (req, res) => {
     try {
         // Check if admin cookie exists and has a valid _id
-        if (!req.cookies || !req.cookies.admin || !req.cookies.admin._id) {
-            return res.redirect("/profile"); // Redirect to login instead of profile to avoid loops
-        }
+        // if (!req.cookies || !req.cookies.admin || !req.cookies.admin._id) {
+        //     return res.redirect("/"); // Redirect to login instead of profile to avoid loops
+        // }
 
         // Fetch admin details from database
-        let admin = await Admin.findById(req.cookies.admin._id);
+        let admin = await Admin.findById(req.user._id);
         if (!admin) {
             res.clearCookie("admin"); // Clear invalid cookie
-            return res.redirect("/profile");
+            return res.redirect("/");
         }
 
         return res.render("profile", { admin });

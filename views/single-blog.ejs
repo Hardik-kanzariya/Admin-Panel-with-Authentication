@@ -40,10 +40,8 @@
                 <div class="card-body"> 
                     <h2 class="card-title"><%= blog.title %></h2>
                     <p class="card-text"><%= blog.content %></p> 
-                    <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt %></small></p> 
+                    <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt.getDate() %>/<%= blog.createdAt.getMonth() + 1 %>/<%= blog.createdAt.getFullYear() %> <%= blog.createdAt.getHours() %>:<%= blog.createdAt.getMinutes() %>:<%= blog.createdAt.getSeconds() %></small></p> 
                     <a href="/blog/view-blog" class="btn btn-secondary">Back to Blog</a>
-                    <a href="/blog/edit-blog/<%= blog.id %>" class="btn btn-primary">Edit</a> 
-                    <a href="/blog/delete-blog/<%= blog.id %>" class="btn btn-danger">Delete</a> 
                 </div>
             </div>
         </div>

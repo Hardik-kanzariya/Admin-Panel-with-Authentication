@@ -46,9 +46,10 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%= blog.title %></h5>
                                 <p class="card-text"><%= blog.content %></p>
-                                <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt %></small></p>
-                                <a href="/blog/edit-blog/<%= blog.id %>" class="btn btn-primary">Edit</a>
-                                <a href="/blog/delete-blog/<%= blog.id %>" class="btn btn-danger">Delete</a>
+                                <p class="card-text"><small class="text-muted">Created at: <%= blog.createdAt.getDate() %>/<%= blog.createdAt.getMonth() + 1 %>/<%= blog.createdAt.getFullYear() %> <%= blog.createdAt.getHours() %>:<%= blog.createdAt.getMinutes() %>:<%= blog.createdAt.getSeconds() %></small></p>
+                                <a href="/blog/edit-blog/<%= blog.id %>" class="btn btn-outline-primary">Edit</a>
+                                <a href="/blog/delete-blog/<%= blog.id %>" class="btn btn-outline-danger">Delete</a>
+                                <a href="/blog/single-blog/<%= blog.id %>" class="btn btn-outline-warning">View</a>
                             </div>
                         </div>
                     </div>
